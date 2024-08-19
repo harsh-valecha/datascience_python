@@ -187,4 +187,31 @@ df1 = pd.DataFrame({
     'name':['Kamlesh','Jaktap','Champa','Gopi','Billu'],
     'Gender':['male','female','male','alien',None]
 })
-print(df1)
+df2 = pd.DataFrame({
+    'values':[100,200,300,400,50],
+    'is_adult':[False,True,True,False,True]
+})
+print(df1+df2)
+'''
+Gender  is_adult name  values
+0    NaN       NaN  NaN     NaN
+1    NaN       NaN  NaN     NaN
+2    NaN       NaN  NaN     NaN
+3    NaN       NaN  NaN     NaN
+4    NaN       NaN  NaN     NaN
+'''
+print(pd.concat([df1,df2]))
+'''
+    name     Gender    values  is_adult
+0  Kamlesh    male     NaN      NaN
+1   Jaktap  female     NaN      NaN
+2   Champa    male     NaN      NaN
+3     Gopi   alien     NaN      NaN
+4    Billu    None     NaN      NaN
+0      NaN     NaN   100.0    False
+1      NaN     NaN   200.0     True
+2      NaN     NaN   300.0     True
+3      NaN     NaN   400.0    False
+4      NaN     NaN    50.0     True
+'''
+print(pd.concat([df1,df2],axis=0))
